@@ -13,6 +13,7 @@ import UpdateCard from "../Components/Update/UpdateCard";
 import LatestUpdatedModel from "../Components/LatestUpdatedModel/LatestUpdatedModel";
 import MyModel from "../Components/MyModelpage/MyModel";
 import MyDownloadpage from "../Components/MyDownloadPage/MyDownloadpage";
+import Homepages from "../Pages/Homepages";
 
 
 
@@ -25,7 +26,13 @@ export const router = createBrowserRouter ([
     children:[
 
         {
-            index: true,
+            path:'/',
+            element:<Homepages></Homepages>
+
+        },
+
+        {
+            path: '/home',
             element: <Home></Home>,
             loader: ()=>fetch('http://localhost:3000/models')
 

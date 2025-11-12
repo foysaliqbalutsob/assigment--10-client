@@ -26,7 +26,7 @@ const NavBar = () => {
   const links = (
     <>
       <li>
-        <MyLink to={"/"}>Home</MyLink>
+        <MyLink to={"/home"}>Home</MyLink>
       </li>
 
       <li>

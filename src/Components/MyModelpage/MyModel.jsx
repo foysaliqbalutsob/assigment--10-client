@@ -5,6 +5,8 @@ import ModelCard from "../ModelCard/ModelCard";
 const MyModel = () => {
   const [models, setModels] = useState([]);
   const {user } = use(AuthContext)
+  console.log(models)
+
 
   
   useEffect(() => {
