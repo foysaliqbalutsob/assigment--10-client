@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Sarah Williams",
+    "specialization": "Small Animals",
+    "experience": "8 years experience",
+    "image": "https://i.ibb.co.com/PGhnddQS/JS1-4120-214x300.jpg",
+    "bio": "Passionate about keeping pets healthy and happy, specializing in dogs and cats.",
+    "email": "sarah.williams@petcare.com",
+    "phone": "+1-555-1234"
+  },
+  {
+    "id": 2,
+    "name": "Dr. Michael Johnson",
+    "specialization": "Exotic Animals",
+    "experience": "5 years experience",
+    "image": "https://i.ibb.co.com/C3pBMWBQ/images-4.jpg",
+    "bio": "Expert in exotic pets including birds, reptiles, and small mammals.",
+    "email": "michael.johnson@petcare.com",
+    "phone": "+1-555-5678"
+  },
+  {
+    "id": 3,
+    "name": "Dr. Emily Brown",
+    "specialization": "Surgery & Emergency Care",
+    "experience": "10 years experience",
+    "image": "https://i.ibb.co.com/Q7f9rFLx/images-5.jpg",
+    "bio": "Specializes in surgical procedures and emergency care for pets of all sizes.",
+    "email": "emily.brown@petcare.com",
+    "phone": "+1-555-9012"
+  },
+  {
+    "id": 4,
+    "name": "Dr. David Lee",
+    "specialization": "Nutrition & Wellness",
+    "experience": "7 years experience",
+    "image": "https://i.ibb.co.com/27nw2xd3/348s.jpg",
+    "bio": "Focuses on preventive care, diet planning, and overall wellness of pets.",
+    "email": "david.lee@petcare.com",
+    "phone": "+1-555-3456"
+  }
+]

@@ -1,0 +1,187 @@
+[
+  {
+    "serviceId": 1,
+    "serviceName": "Winter Coat Fitting for Dogs",
+    "providerName": "PawCare Studio",
+    "providerEmail": "info@pawcare.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold.",
+    "image": "https://i.ibb.co.com/Kzxyy8Jh/71p-HVnqqd-EL-AC-UF1000-1000-QL80.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 2,
+    "serviceName": "Winter Grooming & Paw Treatment",
+    "providerName": "CozyPets Grooming",
+    "providerEmail": "hello@cozypets.com",
+    "price": 30,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Professional grooming with moisturizing paw balm and winter-safe shampoo.",
+    "image": "https://i.ibb.co.com/Vrm1XfM/images-2.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Heated Pet Bed Setup",
+    "providerName": "WarmPaws Comfort",
+    "providerEmail": "support@warmpaws.com",
+    "price": 40,
+    "rating": 4.7,
+    "slotsAvailable": 5,
+    "description": "Electric and microwave-safe heated beds for ultimate pet coziness during winter.",
+    "image": "https://i.ibb.co.com/VpzP6GrF/images-3.jpg",
+    "category": "Accessories"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Winter Health Check-Up",
+    "providerName": "VetWell Clinic",
+    "providerEmail": "contact@vetwell.com",
+    "price": 50,
+    "rating": 5.0,
+    "slotsAvailable": 6,
+    "description": "Comprehensive health examination to ensure your pet is fit for cold temperatures.",
+    "image": "https://i.ibb.co.com/Kz7hSnbK/66.jpg",
+    "category": "Healthcare"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Warm Booties for Paws",
+    "providerName": "HappyTail Boutique",
+    "providerEmail": "sales@happytail.com",
+    "price": 20,
+    "rating": 4.6,
+    "slotsAvailable": 8,
+    "description": "Soft and waterproof paw booties that protect against frostbite and snow.",
+    "image": "https://i.ibb.co.com/STrrMxk/download-4.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Nutritional Winter Diet Plan",
+    "providerName": "PawFuel Nutrition",
+    "providerEmail": "info@pawfuel.com",
+    "price": 35,
+    "rating": 4.8,
+    "slotsAvailable": 10,
+    "description": "Custom meal planning for pets to maintain healthy weight during winter.",
+    "image": "https://i.ibb.co.com/S4s9QbpY/download-5.jpg",
+    "category": "Nutrition"
+  },
+  {
+    "serviceId": 7,
+    "serviceName": "Winter Vaccination & Deworming",
+    "providerName": "SafePet Health",
+    "providerEmail": "contact@safepet.com",
+    "price": 45,
+    "rating": 4.9,
+    "slotsAvailable": 5,
+    "description": "Essential winter vaccines and deworming for strong immunity and protection.",
+    "image": "https://i.ibb.co.com/YF02jCWF/images-2.jpg",
+    "category": "Healthcare"
+  },
+  {
+    "serviceId": 8,
+    "serviceName": "Snow Walk Training",
+    "providerName": "FurSteps Academy",
+    "providerEmail": "train@fursteps.com",
+    "price": 28,
+    "rating": 4.5,
+    "slotsAvailable": 4,
+    "description": "Teach your pets to walk safely and confidently on snow-covered surfaces.",
+    "image": "https://i.ibb.co.com/twpNkj25/The-Wildest-Hero-Surviving-a-Snowy-Winter-with-Your-Dog-pexels-cottonbro-studio-7481806.jpg",
+    "category": "Training"
+  },
+  {
+    "serviceId": 9,
+    "serviceName": "Cozy Pet Cabin Rental",
+    "providerName": "PetLodge WinterStay",
+    "providerEmail": "stay@petlodge.com",
+    "price": 60,
+    "rating": 4.7,
+    "slotsAvailable": 2,
+    "description": "Warm, insulated cabins designed for pets during long winter holidays.",
+    "image": "https://i.ibb.co.com/MymFjttH/494127545.jpg",
+    "category": "Boarding"
+  },
+  {
+    "serviceId": 10,
+    "serviceName": "Winter Fur Conditioning",
+    "providerName": "GlamFur Salon",
+    "providerEmail": "care@glamfur.com",
+    "price": 32,
+    "rating": 4.9,
+    "slotsAvailable": 3,
+    "description": "Deep conditioning treatment to keep your pet’s fur smooth and static-free.",
+    "image": "https://i.ibb.co.com/Psz95z1b/Getty-Images-926743724.webp",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 11,
+    "serviceName": "Indoor Exercise Setup",
+    "providerName": "FitPaws Studio",
+    "providerEmail": "info@fitpaws.com",
+    "price": 45,
+    "rating": 4.8,
+    "slotsAvailable": 5,
+    "description": "Home-based indoor activity installation to keep pets active during cold weather.",
+    "image": "https://i.ibb.co.com/sv5xHq69/download-7.jpg",
+    "category": "Fitness"
+  },
+  {
+    "serviceId": 12,
+    "serviceName": "Pet Massage & Thermal Therapy",
+    "providerName": "PawRelax Spa",
+    "providerEmail": "spa@pawrelax.com",
+    "price": 38,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Warm stone and thermal pad therapy for muscle relaxation and circulation.",
+    "image": "https://i.ibb.co.com/h1WqrRZP/download-9.jpg",
+    "category": "Wellness"
+  },
+  {
+    "serviceId": 13,
+    "serviceName": "Winter Safety Workshop",
+    "providerName": "PetEdu Center",
+    "providerEmail": "edu@petedu.com",
+    "price": 15,
+    "rating": 4.6,
+    "slotsAvailable": 12,
+    "description": "Learn how to protect and care for pets effectively during harsh winter conditions.",
+    "image": "https://i.ibb.co.com/KjpJc7Sm/images-7.jpg",
+    "category": "Education"
+  },
+  {
+    "serviceId": 14,
+    "serviceName": "Emergency Winter Vet Visit",
+    "providerName": "SnowVet Emergency Care",
+    "providerEmail": "emergency@snowvet.com",
+    "price": 70,
+    "rating": 5.0,
+    "slotsAvailable": 2,
+    "description": "24/7 emergency vet service for winter-related health issues.",
+    "image": "https://i.ibb.co.com/p6jw7f47/download-10.jpg",
+    "category": "Healthcare"
+  },
+  {
+    "serviceId": 15,
+    "serviceName": "Winter Cat Blanket Customization",
+    "providerName": "MeowWarm Studio",
+    "providerEmail": "contact@meowwarm.com",
+    "price": 22,
+    "rating": 4.7,
+    "slotsAvailable": 6,
+    "description": "Personalized fleece blankets tailored for cats to snuggle all winter long.",
+    "image": "https://i.ibb.co.com/h18wByYF/images-8.jpg",
+    "category": "Clothing"
+  }
+  
+  
+  
+ 
+  
+]
