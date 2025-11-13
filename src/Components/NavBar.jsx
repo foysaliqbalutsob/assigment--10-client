@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router";
 
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
-import logo from "../assets/logo.jpg";
+import logo from '../assets/Gemini_Generated_Image_h5x2pyh5x2pyh5x2.png';
 import { CgProfile } from "react-icons/cg";
 import { ScaleLoader } from "react-spinners";
 import profile from "../assets/istockphoto-1495088043-612x612.jpg";
@@ -26,25 +26,25 @@ const NavBar = () => {
   const links = (
     <>
       <li>
-        <MyLink to={"/home"}>Home</MyLink>
+        <MyLink className={'text-white text-xl'} to={"/home"}>Home</MyLink>
       </li>
 
       <li>
-        <MyLink to={"/models/Latest-updates"}>Latest Products</MyLink>
+        <MyLink className={'text-white text-xl'} to={"/models/Latest-updates"}>Latest Products</MyLink>
       </li>
 
       <li>
-        <MyLink to={"/AddModel"}>Add Model </MyLink>
+        <MyLink className={'text-white text-xl'} to={"/AddModel"}>Add Model </MyLink>
       </li>
       <li>
-        <MyLink to={"/myModels"}>My Model </MyLink>
+        <MyLink className={'text-white text-2xl'} to={"/myModels"}>My Model </MyLink>
       </li>
       <li>
-        <MyLink to={"/MyContribution"}>My Contribution </MyLink>
+        <MyLink className={'text-white text-xl'} to={"/MyContribution"}>My Contribution </MyLink>
       </li>
 
       <li>
-        <MyLink to={"/myProfile"}>My profile</MyLink>
+        <MyLink className={'text-white text-xl'} to={"/myProfile"}>My profile</MyLink>
       </li>
 
        
@@ -52,7 +52,7 @@ const NavBar = () => {
   );
 
   return (
-    <div className="bg-yellow-400">
+    <div className="bg-gray-800">
       <div className="navbar  shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
@@ -82,14 +82,14 @@ const NavBar = () => {
           </div>
 
           <div className="flex lg:justify-center items-center gap-5 ml-4">
-            <div className="hidden  justify-center  lg:flex">
-              <img src={logo} className="h-15 rounded-full" alt="" />
-              <Link to={"/"} className="btn btn-ghost text-xl ">
-                <span className="text-orange-600">Pet</span>
-                <span className="text-brown-700 font-bold">Warm</span>
+            <div className="hidden  items-center justify-center  lg:flex">
+              <img src={logo} className="h-30 rounded-full " alt="" />
+              <Link to={"/"}  className="btn btn-ghost text-xl ">
+                <span className="text-[#FFD700]">Fix</span>
+                <span className="text-[#FFff] font-bold">Issue</span>
 
-                <span className="text-purple-600 font-extrabold italic">
-                  WOW
+                <span className="text-[#FFD700] font-extrabold italic">
+                  City
                 </span>
               </Link>
             </div>
@@ -127,12 +127,8 @@ const NavBar = () => {
             </div>
           ) : (
             <div className="flex gap-5">
-              <Link to="/signin" className="btn btn-outline btn-sm">
-                Sign In
-              </Link>
-              <Link to="/signup" className="btn btn-outline btn-sm">
-                Sign Up
-              </Link>
+                            <MyLink className={'text-white text-3xl'} to={"/signin"}>Log In </MyLink>
+              <MyLink className={'text-white text-3xl'} to={"/signup"}>Register </MyLink>
             </div>
           )}
         </div>
