@@ -14,6 +14,7 @@ import LatestUpdatedModel from "../Components/LatestUpdatedModel/LatestUpdatedMo
 import MyModel from "../Components/MyModelpage/MyModel";
 import MyDownloadpage from "../Components/MyDownloadPage/MyDownloadpage";
 import Homepages from "../Pages/Homepages";
+import MyContribution from "../Components/MyContribution/MyContribution";
 
 
 
@@ -44,6 +45,13 @@ export const router = createBrowserRouter ([
                 <UpdateCard></UpdateCard>
             </PrivateRoute>,
 
+
+        },
+        {   
+            path:'/MyContribution',
+            element:<PrivateRoute>
+                <MyContribution></MyContribution>
+            </PrivateRoute>,    
 
         },
         

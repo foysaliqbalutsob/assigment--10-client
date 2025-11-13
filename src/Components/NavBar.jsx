@@ -40,7 +40,7 @@ const NavBar = () => {
         <MyLink to={"/myModels"}>My Model </MyLink>
       </li>
       <li>
-        <MyLink to={"/my-download"}>My Download </MyLink>
+        <MyLink to={"/MyContribution"}>My Contribution </MyLink>
       </li>
 
       <li>
