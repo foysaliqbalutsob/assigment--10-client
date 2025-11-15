@@ -152,11 +152,10 @@ const SignIn = () => {
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>
             <p className="py-6">
-              Welcome to PetWormWOW, your trusted pet care companion! Explore
-              the best treats, grooming services, and winter essentials for your
-              furry friends. Sign in to discover tailored tips, local pet
-              services, and exclusive offers that will keep your pets happy,
-              healthy, and loved.
+          Sign in to track your reported issues and see the impact you're making. <br />
+Every report counts! Let's fix the city, one issue at a time. <br />
+
+Join thousands of citizens improving their neighborhoods daily.
             </p>
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">

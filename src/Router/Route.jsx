@@ -84,6 +84,13 @@ export const router = createBrowserRouter ([
             element: <LatestUpdatedModel></LatestUpdatedModel>
 
         },
+        {
+            path:'/update',
+            element:<PrivateRoute>
+                <UpdateCard></UpdateCard>
+            </PrivateRoute>
+
+        },
 
 
 

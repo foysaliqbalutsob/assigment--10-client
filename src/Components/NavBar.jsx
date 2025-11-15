@@ -91,14 +91,14 @@ const NavBar = () => {
 
   return (
     <div>
-      <div className="bg-gray-800 sticky top-0 z-50">
+      <div className="bg-gray-800 border sticky top-0 z-50">
         <div className="navbar shadow-sm container mx-auto text-white">
           <div className="navbar-start">
             <div className="dropdown">
               <div
                 tabIndex={0}
                 role="button"
-                className="btn btn-ghost lg:hidden"
+                className="btn bg-gray-800 btn-ghost lg:hidden"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -117,7 +117,7 @@ const NavBar = () => {
               </div>
               <ul
                 tabIndex="-1"
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow"
+                className="menu menu-sm bg-gray-800 dropdown-content  rounded-box mt-3 w-52 p-2 shadow"
               >
                 {user ? afterLogIn : beforeLogInLinks}
               </ul>

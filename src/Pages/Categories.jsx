@@ -42,7 +42,7 @@ const handleReport = () => {
 const Categories = () => {
   return (
     <div>
-      <div className="flex j items-center max-w-6xl mx-auto px-4 py-10 gap-40  ">
+      <div className="flex flex-col lg:flex-row  justify-center items-center max-w-6xl mx-auto px-4 py-10 gap-40  ">
         <div>
           <img className="w-100 h-100" src={QNO} alt="" />
         </div>

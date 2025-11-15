@@ -18,7 +18,7 @@ const CallToAction = () => {
                 </div>
 
                 {/* Card 2 */}
-                <div className="absolute top-40 right-10 w-96 bg-white rounded-xl shadow-lg p-6">
+                <div className="absolute top-80 border lg:top-40 right-10 w-96 bg-white rounded-xl shadow-lg p-6">
                     <div className="grid grid-cols-2 gap-3 mb-4">
                         <img  className="w-full border h-32 object-cover rounded mb-4"  src="https://i.ibb.co.com/bgbwHsMc/2105130.jpg" />
                         <img  className="w-full border h-32 object-cover rounded mb-4"  src="https://i.ibb.co.com/8L8xQ3Cq/20945093.jpg" />
@@ -31,7 +31,7 @@ const CallToAction = () => {
                 </div>
 
                 {/* Card 3 */}
-                <div className="absolute bottom-16 left-32 w-96 bg-white rounded-xl shadow p-6">
+                <div className="hidden lg:block lg:absolute border bottom-16 left-32 w-96 bg-white rounded-xl shadow p-6">
                     <div className="space-y-2 mb-4">
                         <h1>Create a Problem Free City</h1>
                         
