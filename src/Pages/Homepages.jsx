@@ -11,7 +11,7 @@ const Homepages = () => {
     return (
         <div>
             <div>
-                <h1>here bannar</h1>
+                
                 <Banner></Banner>
             </div>
             
