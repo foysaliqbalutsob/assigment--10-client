@@ -60,14 +60,17 @@ const LatestUpdatedModel = () => {
           </button>
         </form>
 
-        <button className="flex items-center gap-2 border border-gray-800 px-5 py-2 rounded-md font-semibold text-gray-900 hover:bg-gray-900 hover:text-white transition">
-          Explore
-        </button>
+        <Link
+          to="/allIssue"
+          className="flex items-center gap-2 border border-gray-800 px-5 py-2 rounded-md font-semibold text-gray-900 hover:bg-gray-900 hover:text-white transition"
+        >
+          Explore More
+        </Link>
       </div>
 
-      {/* Latest Updated Issues */}
+      
       <div className="max-w-6xl mx-auto p-6">
-        <h2 className="text-3xl font-bold mb-6 text-center">
+        <h2 className="text-3xl font-bold mb-6  text-center">
           Latest Updated Issues
         </h2>
 

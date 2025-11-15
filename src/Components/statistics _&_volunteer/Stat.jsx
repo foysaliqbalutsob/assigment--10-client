@@ -2,7 +2,18 @@ import React from "react";
 
 const Stat = () => {
   return (
-    <div className="flex justify-center items-center my-10">
+<div>
+
+  <div>
+    <h1 className="text-3xl text-center text-[#FFD700]">
+      See Our Contribution
+    </h1>
+  </div>
+
+
+
+
+      <div className="flex justify-center items-center my-10">
       <div className="stats stats-vertical bg-[#FFD700] lg:stats-horizontal shadow">
         <div className="stat">
           <div className="stat-title">Contribution</div>
@@ -23,6 +34,7 @@ const Stat = () => {
         </div>
       </div>
     </div>
+</div>
   );
 };
 
