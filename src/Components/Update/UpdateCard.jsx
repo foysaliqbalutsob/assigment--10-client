@@ -8,7 +8,7 @@
 //   const [model, setModel] = useState(null);
 
 //   useEffect(() => {
-//     fetch(`http://localhost:3000/models/${id}`)
+//     fetch(`https://my-cocerptual-session-server.vercel.app/models/${id}`)
 //       .then((res) => res.json())
 //       .then((data) => {
 //         setModel(data?.result || data);
@@ -30,7 +30,7 @@
 //     };
 //     console.log(updatedData)
 
-//     fetch(`http://localhost:3000/models/${id}`, {
+//     fetch(`https://my-cocerptual-session-server.vercel.app/models/${id}`, {
 //        method: "PUT",
 //        headers: { "Content-Type": "application/json" },
 //        body: JSON.stringify(updatedData),
@@ -45,9 +45,6 @@
 //          toast("Something went wrong!");
 //        });
 //   };
-
-
-
 
 //   if (!model) return <Loading />;
 
@@ -110,14 +107,6 @@
 
 // export default UpdateCard;
 
-
-
-
-
-
-
-
-
 import React, { use, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Loading from "../Loading";
@@ -127,12 +116,12 @@ import { AuthContext } from "../../Context/AuthContext";
 const UpdateCard = () => {
   const { id } = useParams();
   const [issue, setIssue] = useState(null);
-  const {user} =use(AuthContext)
+  const { user } = use(AuthContext);
 
-  console.log("update er ager ",user.email)
+  console.log("update er ager ", user.email);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/models/${id}`)
+    fetch(`https://my-cocerptual-session-server.vercel.app/models/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setIssue(data?.result || data);
@@ -159,7 +148,7 @@ const UpdateCard = () => {
 
     console.log(updatedData);
 
-    fetch(`http://localhost:3000/models/${id}`, {
+    fetch(`https://my-cocerptual-session-server.vercel.app/models/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedData),

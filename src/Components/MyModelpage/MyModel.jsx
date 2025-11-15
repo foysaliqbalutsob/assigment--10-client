@@ -13,7 +13,7 @@ const MyModel = () => {
   useEffect(() => {
     if (!user?.accessToken) return;
 
-    fetch("http://localhost:3000/my-models", {
+    fetch("https://my-cocerptual-session-server.vercel.app/my-models", {
       headers: { authorization: `Bearer ${user.accessToken}` },
     })
       .then((res) => res.json())
@@ -33,7 +33,9 @@ const MyModel = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/models/${id}`, { method: "DELETE" })
+        fetch(`https://my-cocerptual-session-server.vercel.app/models/${id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.success) {
@@ -71,7 +73,7 @@ const MyModel = () => {
       info: form.info.value,
     };
 
-    fetch("http://localhost:3000/contributions", {
+    fetch("https://my-cocerptual-session-server.vercel.app/contributions", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(contribution),
@@ -130,7 +132,10 @@ const MyModel = () => {
       </table>
 
       {/* Contribution Modal */}
-      <dialog ref={handleModalRef} className="modal modal-bottom sm:modal-middle">
+      <dialog
+        ref={handleModalRef}
+        className="modal modal-bottom sm:modal-middle"
+      >
         <div className="modal-box">
           <h3 className="font-bold text-lg mb-4">Pay Clean-Up Contribution</h3>
           {selectedModel && (
@@ -182,10 +187,7 @@ const MyModel = () => {
               <p className="text-gray-500">
                 Date: {new Date().toLocaleDateString()}
               </p>
-              <button
-                type="submit"
-                className="btn btn-success w-full mt-3"
-              >
+              <button type="submit" className="btn btn-success w-full mt-3">
                 Submit Contribution
               </button>
             </form>

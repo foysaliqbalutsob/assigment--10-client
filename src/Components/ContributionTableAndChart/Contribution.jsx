@@ -1,254 +1,87 @@
-// import React, { useEffect, useState } from 'react';
-
-// const Contribution = ({ model }) => {
-//     const [contributors, setContributors] = useState([]);
-//     const [totalCollected, setTotalCollected] = useState(0);
-
-//     useEffect(() => {
-//         fetch(`http://localhost:3000/contributions/${model._id}`)
-//             .then(res => res.json())
-//             .then(data => {
-//                 const result = data.result || [];
-//                 setContributors(result);
-
-//                 // Calculate total collected
-//                 const total = result.reduce((sum, c) => sum + c.amount, 0);
-//                 setTotalCollected(total);
-//             })
-//             .catch(err => {
-//                 console.error(err);
-//                 setContributors([]);
-//                 setTotalCollected(0);
-//             });
-//     }, [model._id]);
-
-//     const progressPercent = Math.min((totalCollected / model.amount) * 100, 100);
-//     let progressColor = 'bg-red-500';
-
-//     if (progressPercent >= 50 && progressPercent < 100) {
-//         progressColor = 'bg-orange-500';
-//     } else if (progressPercent >= 100) {
-//         progressColor = 'bg-green-500';
-//     }
-
-//     return (
-//         <div className="mt-10">
-//             <h3 className="text-xl font-bold mb-3">Contributors</h3>
-
-//             {/* Progress Bar with Total Collected */}
-//             <div className="mb-2">
-//                 <div className="w-full bg-gray-200 rounded-full h-6">
-//                     <div
-//                         className={`${progressColor} h-6 rounded-full text-white text-center transition-all duration-500`}
-//                         style={{ width: `${progressPercent}%` }}
-//                     >
-//                         ${totalCollected} / ${model.amount}
-//                     </div>
-//                 </div>
-//             </div>
-
-//             {/* Contributors Table with Image */}
-//             <table className="table-auto w-full border">
-//                 <thead>
-//                     <tr>
-//                         <th className="border px-2 py-1">Image</th>
-//                         <th className="border px-2 py-1">Name</th>
-//                         <th className="border px-2 py-1">Email</th>
-//                         <th className="border px-2 py-1">Amount</th>
-//                     </tr>
-//                 </thead>
-//                 <tbody>
-//                     {contributors.length > 0 ? (
-//                         contributors.map((c) => (
-//                             <tr key={c._id}>
-//                                 <td className="border px-2 py-1">
-//                                     <img 
-//                                         src={c.image || "https://via.placeholder.com/40"} 
-//                                         alt={c.contributorName} 
-//                                         className="w-10 h-10 rounded-full object-cover"
-//                                     />
-//                                 </td>
-//                                 <td className="border px-2 py-1">{c?.contributorName || '-'}</td>
-//                                 <td className="border px-2 py-1">{c?.email || '-'}</td>
-//                                 <td className="border px-2 py-1">${c?.amount || 0}</td>
-//                             </tr>
-//                         ))
-//                     ) : (
-//                         <tr>
-//                             <td className="border px-2 py-1 text-center" colSpan={4}>No contributions yet</td>
-//                         </tr>
-//                     )}
-//                 </tbody>
-//             </table>
-//         </div>
-//     );
-// };
-
-// export default Contribution;
-
-
-// import React, { useEffect, useState } from 'react';
-
-// const Contribution = ({ model }) => {
-//     const [contributors, setContributors] = useState([]);
-//     const [totalCollected, setTotalCollected] = useState(0);
-
-//     useEffect(() => {
-//         fetch(`http://localhost:3000/contributions/${model._id}`)
-//             .then(res => res.json())
-//             .then(data => {
-//                 const result = data.result || [];
-//                 setContributors(result);
-
-//                 // Calculate total collected
-//                 const total = result.reduce((sum, c) => sum + c.amount, 0);
-//                 setTotalCollected(total);
-//             })
-//             .catch(err => {
-//                 console.error(err);
-//                 setContributors([]);
-//                 setTotalCollected(0);
-//             });
-//     }, [model._id]);
-
-//     const progressPercent = Math.min((totalCollected / model.amount) * 100, 100);
-//     let progressColor = 'bg-red-500';
-//     if (progressPercent >= 50 && progressPercent < 100) progressColor = 'bg-orange-500';
-//     else if (progressPercent >= 100) progressColor = 'bg-green-500';
-
-//     return (
-//         <div className="mt-10">
-//             <h3 className="text-xl font-bold mb-3">Contributors</h3>
-
-//             {/* Progress Bar with Total Collected */}
-//             <div className="w-full bg-gray-200 rounded-full h-6 mb-4">
-//                 <div
-//                     className={`${progressColor} h-6 rounded-full text-white text-center transition-all duration-500`}
-//                     style={{ width: `${progressPercent}%` }}
-//                 >
-//                     ${totalCollected} / ${model.amount}
-//                 </div>
-//             </div>
-
-//             {/* Contributors Table with Image */}
-//             <table className="table-auto w-full border">
-//                 <thead>
-//                     <tr>
-//                         <th className="border px-2 py-1">Image</th>
-//                         <th className="border px-2 py-1">Name</th>
-//                         <th className="border px-2 py-1">Email</th>
-//                         <th className="border px-2 py-1">Amount</th>
-//                     </tr>
-//                 </thead>
-//                 <tbody>
-//                     {contributors.length > 0 ? (
-//                         contributors.map((c) => (
-//                             <tr key={c._id}>
-//                                 <td className="border px-2 py-1">
-//                                     <img 
-//                                         src={c.image || "https://via.placeholder.com/40"} 
-//                                         alt={c.contributorName} 
-//                                         className="w-10 h-10 rounded-full object-cover"
-//                                     />
-//                                 </td>
-//                                 <td className="border px-2 py-1">{c?.contributorName || '-'}</td>
-//                                 <td className="border px-2 py-1">{c?.email || '-'}</td>
-//                                 <td className="border px-2 py-1">${c?.amount || 0}</td>
-//                             </tr>
-//                         ))
-//                     ) : (
-//                         <tr>
-//                             <td className="border px-2 py-1 text-center" colSpan={4}>No contributions yet</td>
-//                         </tr>
-//                     )}
-//                 </tbody>
-//             </table>
-//         </div>
-//     );
-// };
-
-// export default Contribution;
-
-
-
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const Contribution = ({ model }) => {
-    const [contributors, setContributors] = useState([]);
-    const [totalCollected, setTotalCollected] = useState(0);
+  const [contributors, setContributors] = useState([]);
+  const [totalCollected, setTotalCollected] = useState(0);
 
-    useEffect(() => {
-        fetch(`http://localhost:3000/contributions/${model._id}`)
-            .then(res => res.json())
-            .then(data => {
-                const result = data.result || [];
-                setContributors(result);
+  useEffect(() => {
+    fetch(
+      `https://my-cocerptual-session-server.vercel.app/contributions/${model._id}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        const result = data.result || [];
+        setContributors(result);
 
-                // Calculate total collected
-                const total = result.reduce((sum, c) => sum + c.amount, 0);
-                setTotalCollected(total);
-            })
-            .catch(err => {
-                console.error(err);
-                setContributors([]);
-                setTotalCollected(0);
-            });
-    }, [model._id]);
+        const total = result.reduce((sum, c) => sum + c.amount, 0);
+        setTotalCollected(total);
+      })
+      .catch((err) => {
+        console.error(err);
+        setContributors([]);
+        setTotalCollected(0);
+      });
+  }, [model._id]);
 
-    const progressPercent = Math.min((totalCollected / model.amount) * 100, 100);
+  const progressPercent = Math.min((totalCollected / model.amount) * 100, 100);
 
-    return (
-        <div className="mt-10">
-            <h3 className="text-xl font-bold mb-3">Contributors</h3>
+  return (
+    <div className="mt-10">
+      <h3 className="text-xl font-bold mb-3">Contributors</h3>
 
-            {/* Progress Bar with Total Collected and Percentage */}
-            <div className="flex items-center gap-4 mb-2">
-                <div className="w-full bg-gray-200 rounded-full h-6">
-                    <div
-                        className={`h-6 rounded-full bg-green-500 text-white text-center transition-all duration-500`}
-                        style={{ width: `${progressPercent}%` }}
-                    >
-                        ${totalCollected} / ${model.amount}
-                    </div>
-                </div>
-                <span className="text-sm font-medium">{progressPercent.toFixed(1)}%</span>
-            </div>
-
-            {/* Contributors Table with Image */}
-            <table className="table-auto w-full border">
-                <thead>
-                    <tr>
-                        <th className="border px-2 py-1">Image</th>
-                        <th className="border px-2 py-1">Name</th>
-                        <th className="border px-2 py-1">Email</th>
-                        <th className="border px-2 py-1">Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {contributors.length > 0 ? (
-                        contributors.map((c) => (
-                            <tr key={c._id}>
-                                <td className="border px-2 py-1">
-                                    <img 
-                                        src={c.image || "https://via.placeholder.com/40"} 
-                                        alt={c.contributorName} 
-                                        className="w-10 h-10 rounded-full object-cover"
-                                    />
-                                </td>
-                                <td className="border px-2 py-1">{c?.contributorName || '-'}</td>
-                                <td className="border px-2 py-1">{c?.email || '-'}</td>
-                                <td className="border px-2 py-1">${c?.amount || 0}</td>
-                            </tr>
-                        ))
-                    ) : (
-                        <tr>
-                            <td className="border px-2 py-1 text-center" colSpan={4}>No contributions yet</td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
+      <div className="flex items-center gap-4 mb-2">
+        <div className="w-full bg-gray-200 rounded-full h-6">
+          <div
+            className={`h-6 rounded-full bg-green-500 text-white text-center transition-all duration-500`}
+            style={{ width: `${progressPercent}%` }}
+          >
+            ${totalCollected} / ${model.amount}
+          </div>
         </div>
-    );
+        <span className="text-sm font-medium">
+          {progressPercent.toFixed(1)}%
+        </span>
+      </div>
+
+      {/* Contributors Table with Image */}
+      <table className="table-auto w-full border">
+        <thead>
+          <tr>
+            <th className="border px-2 py-1">Image</th>
+            <th className="border px-2 py-1">Name</th>
+            <th className="border px-2 py-1">Email</th>
+            <th className="border px-2 py-1">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          {contributors.length > 0 ? (
+            contributors.map((c) => (
+              <tr key={c._id}>
+                <td className="border px-2 py-1">
+                  <img
+                    src={c.image || "https://via.placeholder.com/40"}
+                    alt={c.contributorName}
+                    className="w-10 h-10 rounded-full object-cover"
+                  />
+                </td>
+                <td className="border px-2 py-1">
+                  {c?.contributorName || "-"}
+                </td>
+                <td className="border px-2 py-1">{c?.email || "-"}</td>
+                <td className="border px-2 py-1">${c?.amount || 0}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td className="border px-2 py-1 text-center" colSpan={4}>
+                No contributions yet
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+  );
 };
 
 export default Contribution;

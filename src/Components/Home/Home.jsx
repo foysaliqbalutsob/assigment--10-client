@@ -1,30 +1,78 @@
-import React from 'react';
-import { useLoaderData } from 'react-router';
-import ModelCard from '../ModelCard/ModelCard';
+import React, { useEffect, useState, useContext } from "react";
+import ModelCard from "../ModelCard/ModelCard";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Home = () => {
-    const data =useLoaderData()
-    console.log(data)
-    console.log(data.length)
+  const { user } = useContext(AuthContext);
+  const [models, setModels] = useState([]);
 
-    return (
-        <div>
-           <div className='flex justify-center items-center'>
-            <p className='text-2xl font-bold'>All Model</p>
-            
-            
-           </div>
+  // Load all models initially
+  useEffect(() => {
+    fetch("https://my-cocerptual-session-server.vercel.app/models")
+      .then((res) => res.json())
+      .then((data) => setModels(data))
+      .catch((err) => console.error(err));
+  }, []);
 
-           <div  className='flex justify-center items-center'>
-            <p className='text-[12px] text-blue-500'>Explore {data.length} model</p>
-           </div>
-           <div className='grid grid-cols-3 gap-10'>
-             {
-                data.map(data =><ModelCard key={data._id} data = {data}></ModelCard>)
-            } 
-           </div>
-        </div>
-    );
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const Issue = e.target.issue.value;
+
+    fetch(`https://my-cocerptual-session-server.vercel.app/search?q=${Issue}`)
+      .then((res) => res.json())
+      .then((data) => setModels(data))
+      .catch((err) => console.error(err));
+  };
+
+  return (
+    <div>
+      <div className="bg-yellow-400 flex py-20 justify-center items-center text-center flex-col px-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          Report, view, or discuss Your City's problems
+        </h1>
+        <p className="text-gray-800 mb-6 text-lg">
+          Garbage, Illegal, Construction, Broken Public Property, Road Damage
+        </p>
+        <p className="text-gray-800 mb-2 font-semibold">
+          Enter Your Issues To Help Your City
+        </p>
+
+        <form
+          onSubmit={handleSearch}
+          className="flex items-center bg-white gap-0"
+        >
+          <input
+            className="w-full p-3 border border-gray-300 rounded-l-md focus:outline-none"
+            type="text"
+            placeholder="Enter Issue ..."
+            name="issue"
+          />
+          <button
+            type="submit"
+            className="bg-black text-white px-6 py-3 font-semibold rounded-r-md hover:bg-gray-800 transition"
+          >
+            Go
+          </button>
+        </form>
+      </div>
+
+      <div className="flex justify-center items-center mt-6">
+        <p className="text-2xl font-bold">All Issues</p>
+      </div>
+
+      <div className="flex justify-center items-center">
+        <p className="text-[12px] text-blue-500">
+          Explore {models.length} models
+        </p>
+      </div>
+
+      <div className="grid grid-cols-3 gap-10 p-4">
+        {models.map((data) => (
+          <ModelCard key={data._id} data={data} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Home;

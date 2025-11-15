@@ -24,13 +24,13 @@ const AddIssue = () => {
       location: form.location.value,
       description: form.description.value,
       image: form.image.value,
-      date: new Date(), // Automatically set current date
+      date: new Date(),
       amount: parseFloat(form.amount.value),
       email: user.email, // Reporter email
       status: "ongoing", // Default status
     };
 
-    fetch("http://localhost:3000/models", {
+    fetch("https://my-cocerptual-session-server.vercel.app/models", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,7 +49,7 @@ const AddIssue = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 border rounded-lg shadow-lg bg-white">
+    <div className="max-w-md text-[#FFD700] mx-auto mt-10 p-6 border rounded-lg shadow-lg bg-white">
       <h2 className="text-2xl font-bold mb-5 text-center">Report New Issue</h2>
 
       <form onSubmit={handleSubmit}>
@@ -137,10 +137,6 @@ const AddIssue = () => {
 
 export default AddIssue;
 
-
-
-
-
 // import React, { useContext } from "react";
 // import { AuthContext } from "../../Context/AuthContext";
 // import Loading from "../Loading";
@@ -175,7 +171,7 @@ export default AddIssue;
 
 //     };
 
-//     fetch("http://localhost:3000/models", {
+//     fetch("https://my-cocerptual-session-server.vercel.app/models", {
 //       method: "POST",
 //       headers: {
 //         "Content-Type": "application/json",

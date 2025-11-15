@@ -1,4 +1,3 @@
-
 import React, { use, useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import { BsDownload } from "react-icons/bs";
@@ -12,7 +11,7 @@ import Contribution from "../ContributionTableAndChart/Contribution";
 const ModelDetails = () => {
   const [model, setModel] = useState(null);
   const { user } = use(AuthContext);
-  const handleModalRef = useRef(null)
+  const handleModalRef = useRef(null);
   const navigate = useNavigate();
   const { id } = useParams();
   console.log(model, id);
@@ -20,7 +19,7 @@ const ModelDetails = () => {
   useEffect(() => {
     if (!user) return;
 
-    fetch(`http://localhost:3000/models/${id}`, {
+    fetch(`https://my-cocerptual-session-server.vercel.app/models/${id}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${user.accessToken}`,
@@ -35,7 +34,6 @@ const ModelDetails = () => {
     return <Loading></Loading>;
   }
 
-
   const handleDelete = () => {
     const id = model._id;
 
@@ -49,7 +47,7 @@ const ModelDetails = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/models/${id}`, {
+        fetch(`https://my-cocerptual-session-server.vercel.app/models/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -72,7 +70,7 @@ const ModelDetails = () => {
   };
 
   const handleDownload = () => {
-    fetch("http://localhost:3000/downloads", {
+    fetch("https://my-cocerptual-session-server.vercel.app/downloads", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -96,63 +94,46 @@ const ModelDetails = () => {
       });
   };
 
-
-
-
-
-
-
-
-
   const handleContributionSubmit = (e) => {
-  e.preventDefault();
-  const form = e.target;
+    e.preventDefault();
+    const form = e.target;
 
-  const contribution = {
-    issueId: model._id,
-    issueTitle: model.title,
-    contributorName: form.name.value,
-    image: user.photoURL,
-    email: user.email,
-    phone: form.phone.value,
-    address: form.address.value,
-    amount: parseFloat(form.amount.value),
-    date: new Date(),
-    info: form.info.value,
-  };
+    const contribution = {
+      issueId: model._id,
+      issueTitle: model.title,
+      contributorName: form.name.value,
+      image: user.photoURL,
+      email: user.email,
+      phone: form.phone.value,
+      address: form.address.value,
+      amount: parseFloat(form.amount.value),
+      date: new Date(),
+      info: form.info.value,
+    };
 
-  fetch("http://localhost:3000/contributions", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(contribution),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.success) {
-        toast.success("Thank you! Your contribution has been recorded.");
-        form.reset();
-        handleModalRef.current.close();
-      }
+    fetch("https://my-cocerptual-session-server.vercel.app/contributions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(contribution),
     })
-    .catch((err) => console.error(err));
-};
-
-
-
-  const HandleOpenModal = () =>{
-
-    handleModalRef.current.showModal();
-    
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          toast.success("Thank you! Your contribution has been recorded.");
+          form.reset();
+          handleModalRef.current.close();
+        }
+      })
+      .catch((err) => console.error(err));
   };
 
-
-
+  const HandleOpenModal = () => {
+    handleModalRef.current.showModal();
+  };
 
   return (
     <div className="max-w-5xl mx-auto p-6">
       <div className="bg-white shadow-xl rounded-xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-6 p-6 border">
-
-        {/* 🖼️ Image */}
         <div className="relative">
           <img
             src={model.image}
@@ -164,7 +145,6 @@ const ModelDetails = () => {
           </span>
         </div>
 
-        {/* 📋 Info */}
         <div className="flex flex-col justify-between">
           <div>
             <h2 className="text-3xl font-bold text-gray-900 mb-3">
@@ -175,25 +155,23 @@ const ModelDetails = () => {
 
             <div className="space-y-2 text-sm text-gray-700">
               <p>
-                <span className="font-medium">📍 Location:</span>{" "}
-                {model.location}
+                <span className="font-medium"> Location:</span> {model.location}
               </p>
               <p>
-                <span className="font-medium">📅 Date:</span>{" "}
+                <span className="font-medium"> Date:</span>{" "}
                 {new Date(model.date).toLocaleDateString()}
               </p>
               <p>
-                <span className="font-medium">💰 Suggested Fix Budget:</span>{" "}
+                <span className="font-medium"> Suggested Fix Budget:</span>{" "}
                 <span className="font-semibold text-green-700">
                   ${model.amount}
                 </span>
               </p>
               <p>
-                <span className="font-medium">📧 Reported By:</span>{" "}
-                {model.email}
+                <span className="font-medium">Reported By:</span> {model.email}
               </p>
               <p>
-                <span className="font-medium">🟡 Status:</span>{" "}
+                <span className="font-medium">Status:</span>{" "}
                 <span
                   className={`font-semibold ${
                     model.status === "ongoing"
@@ -207,21 +185,21 @@ const ModelDetails = () => {
             </div>
           </div>
 
-          {/* ⚙️ Actions */}
           <div className="flex flex-wrap gap-3 mt-6">
-            <button
+            {/* <button
               onClick={handleDownload}
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg shadow-md flex items-center gap-2"
             >
               <BsDownload size={20} /> Download
-            </button>
+            </button> */}
 
-            <Link
-              to={`/update-models/${model._id}`}
-              className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-4 rounded-lg shadow-md"
+            <button
+              className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-4 rounded-lg shadow-md"
+              onClick={HandleOpenModal}
             >
-              Update
-            </Link>
+              {" "}
+              Pay Clean-Up Contribution
+            </button>
 
             <button
               onClick={handleDelete}
@@ -229,54 +207,80 @@ const ModelDetails = () => {
             >
               Delete
             </button>
-            <button className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-4 rounded-lg shadow-md" onClick={HandleOpenModal} > open</button>
           </div>
         </div>
 
-
-
-
-
         {/* Open the modal using document.getElementById('ID').showModal() method */}
 
+        <dialog
+          ref={handleModalRef}
+          className="modal modal-bottom sm:modal-middle"
+        >
+          <div className="modal-box">
+            <h3 className="font-bold text-lg mb-4">
+              Pay Clean-Up Contribution
+            </h3>
+            <form onSubmit={handleContributionSubmit} className="space-y-3">
+              <input
+                type="text"
+                value={model.title}
+                readOnly
+                className="input input-bordered w-full"
+              />
+              <input
+                type="number"
+                name="amount"
+                placeholder="Contribution Amount"
+                required
+                className="input input-bordered w-full"
+              />
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+                className="input input-bordered w-full"
+              />
+              <input
+                type="email"
+                value={user.email}
+                readOnly
+                className="input input-bordered w-full"
+              />
+              <input
+                type="text"
+                name="phone"
+                placeholder="Phone Number"
+                required
+                className="input input-bordered w-full"
+              />
+              <input
+                type="text"
+                name="address"
+                placeholder="Address"
+                className="input input-bordered w-full"
+              />
+              <textarea
+                name="info"
+                placeholder="Additional Info"
+                className="textarea textarea-bordered w-full"
+              ></textarea>
+              <p className="text-gray-500">
+                Date: {new Date().toLocaleDateString()}
+              </p>
 
- <dialog ref={handleModalRef} className="modal modal-bottom sm:modal-middle">
-  <div className="modal-box">
-    <h3 className="font-bold text-lg mb-4">Pay Clean-Up Contribution</h3>
-    <form onSubmit={handleContributionSubmit} className="space-y-3">
-      <input type="text" value={model.title} readOnly className="input input-bordered w-full" />
-      <input type="number" name="amount" placeholder="Contribution Amount" required className="input input-bordered w-full" />
-      <input type="text" name="name" placeholder="Your Name" required className="input input-bordered w-full" />
-      <input type="email" value={user.email} readOnly className="input input-bordered w-full" />
-      <input type="text" name="phone" placeholder="Phone Number" required className="input input-bordered w-full" />
-      <input type="text" name="address" placeholder="Address" className="input input-bordered w-full" />
-      <textarea name="info" placeholder="Additional Info" className="textarea textarea-bordered w-full"></textarea>
-      <p className="text-gray-500">Date: {new Date().toLocaleDateString()}</p>
+              <button type="submit" className="btn btn-success w-full mt-3">
+                Submit Contribution
+              </button>
+            </form>
 
-      <button type="submit" className="btn btn-success w-full mt-3">Submit Contribution</button>
-    </form>
-
-    <div className="modal-action">
-      <form method="dialog">
-        <button className="btn">Close</button>
-      </form>
-    </div>
-  </div>
-</dialog>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <div className="modal-action">
+              <form method="dialog">
+                <button className="btn">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
       </div>
 
       <Contribution key={id} model={model}></Contribution>

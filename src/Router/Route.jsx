@@ -33,9 +33,9 @@ export const router = createBrowserRouter ([
         },
 
         {
-            path: '/home',
+            path: '/allIssue',
             element: <Home></Home>,
-            loader: ()=>fetch('http://localhost:3000/models')
+            
 
         },
 
@@ -69,13 +69,7 @@ export const router = createBrowserRouter ([
             </PrivateRoute>,
             
         },
-        {
-            path:'/my-download',
-            element:<PrivateRoute>
-                <MyDownloadpage></MyDownloadpage>
-            </PrivateRoute>,
-            
-        },
+       
         
         {
             path:'/models/:id',
@@ -102,7 +96,9 @@ export const router = createBrowserRouter ([
         },
         {
             path: '/addModel',
-            element:<AddModel></AddModel>
+            element:<PrivateRoute>
+                <AddModel></AddModel>
+            </PrivateRoute>
         },
         {
               path:'/signin',
