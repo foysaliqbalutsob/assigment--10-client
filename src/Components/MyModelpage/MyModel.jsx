@@ -13,6 +13,8 @@ const MyModel = () => {
 
 
  const [loading, setLoading] = useState(true);
+ 
+
 
 
 
@@ -26,6 +28,35 @@ const handleOpenUpdateModal = (model) => {
   setUpdateModel(model);
   updateModalRef.current.showModal();
 };
+
+// const handleUpdateSubmit = (e) => {
+//   e.preventDefault();
+//   const form = e.target;
+
+//   const updatedData = {
+//     title: form.title.value,
+//     category: form.category.value,
+//     location: form.location.value,
+//     amount: parseFloat(form.amount.value),
+//     status: form.status.value,
+//   };
+
+//   fetch(`https://my-cocerptual-session-server.vercel.app/models/${updateModel._id}`, {
+//     method: "PUT",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify(updatedData),
+//   })
+//     .then((res) => res.json())
+//     .then((data) => {
+//       if (data.success) {
+//         toast.success("Issue updated successfully!");
+//         // Update frontend state
+//         setModels(models.map(m => m._id === updateModel._id ? { ...m, ...updatedData } : m));
+//         updateModalRef.current.close();
+//       }
+//     });
+// };
+
 
 const handleUpdateSubmit = (e) => {
   e.preventDefault();
@@ -48,14 +79,20 @@ const handleUpdateSubmit = (e) => {
     .then((data) => {
       if (data.success) {
         toast.success("Issue updated successfully!");
-        // Update frontend state
-        setModels(models.map(m => m._id === updateModel._id ? { ...m, ...updatedData } : m));
+
+       
+        setModels(prev =>
+          prev.map(m =>
+            m._id === updateModel._id ? { ...m, ...updatedData } : m
+          )
+        );
+
         updateModalRef.current.close();
       }
     });
 };
 
-  // Fetch user's models
+  
   useEffect(() => {
     if (!user?.accessToken) return;
     setLoading(true);
@@ -72,7 +109,7 @@ const handleUpdateSubmit = (e) => {
       .catch((err) => console.error(err));
   }, [user?.accessToken]);
 
-  // Delete a model
+  
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -121,6 +158,8 @@ const handleUpdateSubmit = (e) => {
       date: new Date(),
       info: form.info.value,
     };
+
+
 
     fetch("https://my-cocerptual-session-server.vercel.app/contributions", {
       method: "POST",

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-const Contribution = ({ model }) => {
+const Contribution = ({ model, reload }) => {
   const [contributors, setContributors] = useState([]);
   const [totalCollected, setTotalCollected] = useState(0);
 
   useEffect(() => {
+    if (!model?._id) return;
+console.log('hello')
     fetch(
       `https://my-cocerptual-session-server.vercel.app/contributions/${model._id}`
     )
@@ -21,7 +23,7 @@ const Contribution = ({ model }) => {
         setContributors([]);
         setTotalCollected(0);
       });
-  }, [model._id]);
+  }, [model._id,reload]);
 
   const progressPercent = Math.min((totalCollected / model.amount) * 100, 100);
 
@@ -30,18 +32,22 @@ const Contribution = ({ model }) => {
       <h3 className="text-xl font-bold mb-3">Contributors</h3>
 
       <div className="flex items-center gap-4 mb-2">
-        <div className="w-full bg-gray-200 rounded-full h-6">
-          <div
-            className={`h-6 rounded-full bg-green-500 text-white text-center transition-all duration-500`}
-            style={{ width: `${progressPercent}%` }}
-          >
-            ${totalCollected} / ${model.amount}
-          </div>
-        </div>
-        <span className="text-sm font-medium">
-          {progressPercent.toFixed(1)}%
-        </span>
-      </div>
+  <div className="w-full bg-gray-200 rounded-full h-6 overflow-hidden">
+
+    <div
+      className="h-full bg-green-500 text-white transition-all duration-500 flex items-center justify-center text-sm font-semibold"
+      style={{ width: `${progressPercent}%` }}
+    >
+      ${totalCollected} / ${model.amount}
+    </div>
+
+  </div>
+
+  <span className="text-sm font-medium min-w-[50px]">
+    {progressPercent.toFixed(1)}%
+  </span>
+</div>
+
 
       {/* Contributors Table with Image */}
       <table className="table-auto w-full border">

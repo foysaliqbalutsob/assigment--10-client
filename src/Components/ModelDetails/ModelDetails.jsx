@@ -13,6 +13,9 @@ const ModelDetails = () => {
   const { user } = use(AuthContext);
   const handleModalRef = useRef(null);
   const navigate = useNavigate();
+  const [reload, setReload] = useState(false)
+
+
   const { id } = useParams();
   console.log(model, id);
 
@@ -120,6 +123,7 @@ const ModelDetails = () => {
       .then((data) => {
         if (data.success) {
           toast.success("Thank you! Your contribution has been recorded.");
+          setReload(!reload)
           form.reset();
           handleModalRef.current.close();
         }
@@ -283,7 +287,7 @@ const ModelDetails = () => {
         </dialog>
       </div>
 
-      <Contribution key={id} model={model}></Contribution>
+      <Contribution key={id} reload ={reload} model={model}></Contribution>
     </div>
   );
 };
