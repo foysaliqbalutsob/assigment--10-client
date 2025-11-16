@@ -31,11 +31,11 @@ console.log('hello')
     <div className="mt-10">
       <h3 className="text-xl font-bold mb-3">Contributors</h3>
 
-      <div className="flex items-center gap-4 mb-2">
-  <div className="w-full bg-gray-200 rounded-full h-6 overflow-hidden">
+      {/* <div className="flex items-center gap-4 mb-2">
+  <div className="w-full absolute -amber-400 bg-gray-200 rounded-full flex h-6 overflow-hidden">
 
     <div
-      className="h-full bg-green-500 text-white transition-all duration-500 flex items-center justify-center text-sm font-semibold"
+      className="h-full bg-green-500 text-indigo-700  relative top-1.5 left-10 b text-center text-sm font-semibold"
       style={{ width: `${progressPercent}%` }}
     >
       ${totalCollected} / ${model.amount}
@@ -46,7 +46,29 @@ console.log('hello')
   <span className="text-sm font-medium min-w-[50px]">
     {progressPercent.toFixed(1)}%
   </span>
+</div> */}
+
+<div className="flex items-center gap-4 mb-2">
+  <div className="w-full bg-gray-200 rounded-full h-6 overflow-hidden relative">
+
+    {/* Progress Fill */}
+    <div
+      className="h-full bg-green-500 transition-all duration-500"
+      style={{ width: `${progressPercent}%` }}
+    ></div>
+
+    {/* Center Text */}
+    <div className="absolute inset-0 flex text-blue-700 items-center justify-center text-sm font-semibold ">
+      ${totalCollected} / ${model.amount}
+    </div>
+
+  </div>
+
+  <span className="text-sm font-medium min-w-[50px]">
+    {progressPercent.toFixed(1)}%
+  </span>
 </div>
+
 
 
       {/* Contributors Table with Image */}
