@@ -65,40 +65,79 @@ const MyContribution = () => {
           You haven;t made any contributions yet.
         </p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {contributions.map((c) => (
-            <div key={c._id} className="card bg-base-100 shadow-xl border">
-              <div className="card-body">
-                <h2 className="card-title text-lg font-bold">{c.issueTitle}</h2>
-                <p className="text-sm text-gray-600">
-                  <span className="font-semibold">Category:</span>{" "}
-                  {c.category || "Not   specified"}
-                </p>
-                <p className="text-sm text-gray-600">
-                  <span className="font-semibold">Contributor:</span>{" "}
-                  {c.contributorName}
-                </p>
-                <p className="text-sm text-gray-600">
-                  <span className="font-semibold">Paid Amount:</span> $
-                  {c.amount}
-                </p>
-                <p className="text-sm   text-gray-600">
-                  <span className="font-semibold   ">Date:</span>{" "}
-                  {new Date(c.date).toLocaleDateString()}
-                </p>
+        <>
+          {/* ---------------------- LG: TABLE VIEW ---------------------- */}
+          <div className="hidden lg:block overflow-x-auto">
+            <table className="table w-full border">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="p-2 border">Issue Title</th>
+                  <th className="p-2 border">Category</th>
+                  <th className="p-2 border">Amount</th>
+                  <th className="p-2 border">Date</th>
+                  <th className="p-2 border">Action</th>
+                </tr>
+              </thead>
 
-                <div className="card-actions justify-end mt-4">
-                  <button
-                    onClick={() => handleDownload(c)}
-                    className="btn   btn-sm btn-primary"
-                  >
-                    Download Report
-                  </button>
+              <tbody>
+                {contributions.map((c) => (
+                  <tr key={c._id} className="text-center border">
+                    <td className="p-2 border">{c.issueTitle}</td>
+                    <td className="p-2 border">{c.category}</td>
+                    <td className="p-2 border">${c.amount}</td>
+                    <td className="p-2 border">
+                      {new Date(c.date).toLocaleDateString()}
+                    </td>
+                    <td className="p-2 border">
+                      <button
+                        onClick={() => handleDownload(c)}
+                        className="btn btn-sm btn-primary"
+                      >
+                        Download
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* ---------------------- SM: CARD VIEW ---------------------- */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:hidden">
+            {contributions.map((c) => (
+              <div key={c._id} className="card bg-base-100 shadow-lg border">
+                <div className="card-body p-5">
+                  <h2 className="card-title text-lg font-bold">
+                    {c.issueTitle}
+                  </h2>
+
+                  <p>
+                    <strong>Category: </strong> {c.category}
+                  </p>
+                  <p>
+                    <strong>Contributor: </strong> {c.contributorName}
+                  </p>
+                  <p>
+                    <strong>Paid Amount: </strong>${c.amount}
+                  </p>
+                  <p>
+                    <strong>Date: </strong>
+                    {new Date(c.date).toLocaleDateString()}
+                  </p>
+
+                  <div className="card-actions justify-end mt-3">
+                    <button
+                      onClick={() => handleDownload(c)}
+                      className="btn btn-sm btn-primary"
+                    >
+                      Download Report
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );

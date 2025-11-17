@@ -178,7 +178,7 @@ const handleUpdateSubmit = (e) => {
   };
 
   return (
-    <div className="p-6">
+    <div className="p-6  ">
       <h2 className="text-2xl font-bold mb-4">My Issues</h2>
 
        {loading && <Loading></Loading>}
@@ -233,51 +233,98 @@ const handleUpdateSubmit = (e) => {
         </tbody>
       </table> */}
 
-       {!loading && models.length > 0 && (
-        <table className="table-auto w-full border">
-          <thead>
-            <tr>
-              <th className="border px-2 py-1">Title</th>
-              <th className="border px-2 py-1">category</th>
-              <th className="border px-2 py-1">location</th>
-              <th className="border px-2 py-1">Amount</th>
-              <th className="border px-2 py-1">Status</th>
-              <th className="border px-2 py-1">Actions</th>
+      {!loading && models.length > 0 && (
+  <div>
+
+    {/* TABLE FOR DESKTOP (md/lg) */}
+    <div className="hidden md:block overflow-x-auto">
+      <table className="table-auto w-full border">
+        <thead>
+          <tr>
+            <th className="border px-2 py-1">Title</th>
+            <th className="border px-2 py-1">Category</th>
+            <th className="border px-2 py-1">Location</th>
+            <th className="border px-2 py-1">Amount</th>
+            <th className="border px-2 py-1">Status</th>
+            <th className="border px-2 py-1">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {models.map((m) => (
+            <tr key={m._id}>
+              <td className="border px-2 py-1">{m.title}</td>
+              <td className="border px-2 py-1">{m.category}</td>
+              <td className="border px-2 py-1">{m.location}</td>
+              <td className="border px-2 py-1">${m.amount}</td>
+              <td className="border px-2 py-1">{m.status}</td>
+              <td className="border px-2 py-1 space-x-2">
+                <button
+                  onClick={() => handleOpenModal(m)}
+                  className="bg-yellow-500 px-2 py-1 rounded text-white"
+                >
+                  Contribute
+                </button>
+
+                <button
+                  onClick={() => handleOpenUpdateModal(m)}
+                  className="bg-blue-500 px-2 py-1 rounded text-white"
+                >
+                  Update
+                </button>
+
+                <button
+                  onClick={() => handleDelete(m._id)}
+                  className="bg-red-600 px-2 py-1 rounded text-white"
+                >
+                  Delete
+                </button>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {models.map((m) => (
-              <tr key={m._id}>
-                <td className="border px-2 py-1">{m.title}</td>
-                <td className="border px-2 py-1">{m.category}</td>
-                <td className="border px-2 py-1">{m.location}</td>
-                <td className="border px-2 py-1">${m.amount}</td>
-                <td className="border px-2 py-1">{m.status}</td>
-                <td className="border px-2 py-1 space-x-2">
-                  <button
-                    onClick={() => handleOpenModal(m)}
-                    className="bg-yellow-500 px-2 py-1 rounded text-white"
-                  >
-                    Contribute
-                  </button>
-                  <button
-                    onClick={() => handleOpenUpdateModal(m)}
-                    className="bg-blue-500 px-2 py-1 rounded text-white"
-                  >
-                    Update
-                  </button>
-                  <button
-                    onClick={() => handleDelete(m._id)}
-                    className="bg-red-600 px-2 py-1 rounded text-white"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    {/* CARD VIEW FOR MOBILE (sm) */}
+    <div className="md:hidden space-y-4">
+      {models.map((m) => (
+        <div key={m._id} className="border p-4 rounded-lg shadow">
+          <h3 className="text-lg font-bold">{m.title}</h3>
+
+          <p><span className="font-semibold">Category:</span> {m.category}</p>
+          <p><span className="font-semibold">Location:</span> {m.location}</p>
+          <p><span className="font-semibold">Amount:</span> ${m.amount}</p>
+          <p><span className="font-semibold">Status:</span> {m.status}</p>
+
+          <div className="flex flex-wrap gap-2 mt-3">
+            <button
+              onClick={() => handleOpenModal(m)}
+              className="bg-yellow-500 px-3 py-1 rounded text-white text-sm"
+            >
+              Contribute
+            </button>
+
+            <button
+              onClick={() => handleOpenUpdateModal(m)}
+              className="bg-blue-500 px-3 py-1 rounded text-white text-sm"
+            >
+              Update
+            </button>
+
+            <button
+              onClick={() => handleDelete(m._id)}
+              className="bg-red-600 px-3 py-1 rounded text-white text-sm"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+)}
+
 
       {/* Contribution Modal */}
       <dialog
