@@ -66,10 +66,10 @@ const MyContribution = () => {
         </p>
       ) : (
         <>
-          {/* ---------------------- LG: TABLE VIEW ---------------------- */}
+          
           <div className="hidden lg:block overflow-x-auto">
             <table className="table w-full border">
-              <thead className="bg-gray-100">
+              <thead className="bg-gray-700">
                 <tr>
                   <th className="p-2 border">Issue Title</th>
                   <th className="p-2 border">Category</th>
@@ -102,7 +102,7 @@ const MyContribution = () => {
             </table>
           </div>
 
-          {/* ---------------------- SM: CARD VIEW ---------------------- */}
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:hidden">
             {contributions.map((c) => (
               <div key={c._id} className="card bg-base-100 shadow-lg border">

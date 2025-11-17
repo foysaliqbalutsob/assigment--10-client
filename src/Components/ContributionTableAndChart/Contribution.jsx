@@ -6,7 +6,7 @@ const Contribution = ({ model, reload }) => {
 
   useEffect(() => {
     if (!model?._id) return;
-console.log('hello')
+// console.log('hello')
     fetch(
       `https://my-cocerptual-session-server.vercel.app/contributions/${model._id}`
     )

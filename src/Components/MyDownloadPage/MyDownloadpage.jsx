@@ -23,7 +23,7 @@ const MyDownloadpage = () => {
       .then((data) => {
         if (data.success) {
           setModels(data.result);
-          console.log("Downloads loaded:", data.result);
+          // console.log("Downloads loaded:", data.result);
         } else {
           console.error("Failed to load downloads:", data.message);
         }

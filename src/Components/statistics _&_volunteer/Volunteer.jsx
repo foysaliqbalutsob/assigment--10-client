@@ -7,7 +7,7 @@ const Volunteer = () => {
     e.preventDefault();
     const Issue = e.target.issue.value;
 
-    console.log("Searching for issue:", Issue);
+    // console.log("Searching for issue:", Issue);
 
     fetch(`https://my-cocerptual-session-server.vercel.app/search?q=${Issue}`)
       .then((res) => res.json())

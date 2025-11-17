@@ -17,7 +17,7 @@ const ModelDetails = () => {
 
 
   const { id } = useParams();
-  console.log(model, id);
+  // console.log(model, id);
 
   useEffect(() => {
     if (!user) return;
