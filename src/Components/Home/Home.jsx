@@ -5,6 +5,7 @@ import { AuthContext } from "../../Context/AuthContext";
 const Home = () => {
   const { user } = useContext(AuthContext);
   const [models, setModels] = useState([]);
+  const [filterCategory, setFilterCategory] = useState("");
 
   // Load all models initially
   useEffect(() => {
@@ -14,6 +15,7 @@ const Home = () => {
       .catch((err) => console.error(err));
   }, []);
 
+  // Search
   const handleSearch = (e) => {
     e.preventDefault();
     const Issue = e.target.issue.value;
@@ -24,19 +26,29 @@ const Home = () => {
       .catch((err) => console.error(err));
   };
 
+  // Filter Logic
+  const filteredModels = models.filter((item) => {
+    if (filterCategory && item.category !== filterCategory) {
+      return false;
+    }
+    return true;
+  });
+
   return (
     <div>
+      {/* Banner */}
       <div className="bg-yellow-400 flex py-20 justify-center items-center text-center flex-col px-4">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
           Report, view, or discuss Your City's problems
         </h1>
         <p className="text-gray-800 mb-6 text-lg">
-          Garbage, Illegal, Construction, Broken Public Property, Road Damage
+          Garbage, Illegal Construction, Broken Public Property, Road Damage
         </p>
         <p className="text-gray-800 mb-2 font-semibold">
           Enter Your Issues To Help Your City
         </p>
 
+        {/* Search */}
         <form
           onSubmit={handleSearch}
           className="flex items-center bg-white gap-0"
@@ -56,18 +68,35 @@ const Home = () => {
         </form>
       </div>
 
+      {/* Title */}
       <div className="flex justify-center items-center mt-6">
         <p className="text-2xl font-bold">All Issues</p>
       </div>
 
       <div className="flex justify-center items-center">
         <p className="text-[12px] text-blue-500">
-          Explore {models.length} models
+          Explore {filteredModels.length} models
         </p>
       </div>
 
-      <div className="grid grid-cols-1  lg:grid-cols-3 gap-10 p-4">
-        {models.map((data) => (
+      {/* Filter Section */}
+      <div className="flex justify-center mt-6">
+        <select
+          className="border p-2 rounded-md"
+          value={filterCategory}
+          onChange={(e) => setFilterCategory(e.target.value)}
+        >
+          <option value="">All Category</option>
+          <option value="Garbage">Garbage</option>
+          <option value="Illegal Construction">Illegal Construction</option>
+          <option value="Road Damage">Road Damage</option>
+          <option value="Nature">Nature</option>
+        </select>
+      </div>
+
+      {/* Cards */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 p-4 mt-4">
+        {filteredModels.map((data) => (
           <ModelCard key={data._id} data={data} />
         ))}
       </div>

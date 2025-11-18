@@ -411,7 +411,7 @@ const handleUpdateSubmit = (e) => {
 
       <dialog ref={updateModalRef} className="modal modal-bottom sm:modal-middle">
   <div className="modal-box">
-    <h3 className="font-bold text-lg mb-4">Update Issue</h3>
+    <h3 className="font-bold text-lg mb-4">Updateeeee Issue</h3>
     {updateModel && (
       <form onSubmit={handleUpdateSubmit} className="space-y-3">
         <input
@@ -438,12 +438,30 @@ const handleUpdateSubmit = (e) => {
           defaultValue={updateModel.amount}
           className="input input-bordered w-full"
         />
-        <input
-          type="text"
-          name="status"
-          defaultValue={updateModel.status}
-          className="input input-bordered w-full"
-        />
+        <div className="flex gap-5">
+  <label className="flex items-center gap-2">
+    <input
+      type="radio"
+      name="status"
+      value="ongoing"
+      defaultChecked={updateModel.status === "ongoing"}
+      className="radio"
+    />
+    Ongoing
+  </label>
+
+  <label className="flex items-center gap-2">
+    <input
+      type="radio"
+      name="status"
+      value="ended"
+      defaultChecked={updateModel.status === "ended"}
+      className="radio"
+    />
+    Ended
+  </label>
+</div>
+
         <button type="submit" className="btn btn-success w-full mt-3">
           save changes
         </button>
