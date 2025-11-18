@@ -1,63 +1,79 @@
-# Pet WarmWow – Pet Care in Winter
+# Community Cleanliness & Issue Reporting Portal
 
-**Assignment Category:** Assignment-09_category_rose  
-
-
+A MERN stack web application where users can report community cleanliness issues, track their own reports, contribute to cleanup activities, and download contribution reports. The system includes secure authentication, protected routes, issue filtering, and a fully responsive UI.
 
 ---
 
-**Pet WarmWow** Project Overview :
+## Features
 
-# is a cozy winter companion platform for pet owners. It helps users ensure their furry friends stay warm, safe, and healthy during the cold season. The application allows users to:
-
-- Explore local winter pet care services  
-- View winter pet clothing and grooming options  
-- Access expert tips and consultations
-- consult with doctor 
-
-
-
----
-
-## 💻 Technologies & Packages Used
-
-- **Frontend:** React, React Router, DaisyUI, Tailwind CSS  
-- **Authentication & Backend:** Firebase Authentication  
-- **Animations:** AOS, React Spring  
-- **Notifications:** React Toastify  
-- **Slider/Carousel:** Swiper.js  
-- **Icons:** React Icons (FontAwesome)  
+- Firebase Authentication (Email/Password + Google Login)  
+- Add, Update & Delete Issues (Private & Protected Routes)  
+- Contribution System with PDF Report Download  
+- All Issues Page with Category & Status Filtering  
+- Home Page with Categories, Latest Issues, Stats & CTA Section  
+- Dark/Light Mode Toggle  
+- Toast / SweetAlert Notifications  
+- 404 Not Found Page  
+- Loading Spinners during API requests  
+- Fully Responsive UI (Tailwind CSS)  
+- Protected Routes (no redirect after refresh)
 
 ---
 
-##  Key Features
+## Main Pages
 
-### General Features
-- Fully responsive design for mobile, tablet, and desktop  
--  persistent Navbar and Footer across routes  
-- Toast notifications for success and error messages  
-- JSON-based service data to display winter pet services  
-
-### Authentication
-- **Sign Up:** Name, Email, Photo-URL, Password  
-  - Password validation: Uppercase, lowercase, special character, min 6 characters  
-  - Google Sign-In integration  
-- **Login:** Email and password with validation  
-- **Forgot Password:** Redirect to Gmail for reset  
-- **Profile Page:** Displays user info with an **Update Profile** button  
-
-### Home Page
-- Hero slider showcasing pets in winter outfits (Swiper.js + DaisyUI)  
-- Popular Winter Care Services loaded from JSON file  
-- “Winter Care Tips for Pets” section  
-- “Meet Our Expert Vets” section  
-- Extra homepage section for seasonal pet care tips  
-
-### Service Details Page
-- Protected route: requires login  
-- Shows full JSON data of the selected service  
-- Book Service form: Name, Email, and “Book Now” button  
+- Home – Banner, categories, recent issues, stats  
+- All Issues – Grid view, filters, details page  
+- Add Issue – Private form for submitting issues  
+- Issue Details – Full description + contribution modal  
+- My Issues – User-specific issues (update/delete)  
+- My Contribution – User’s payments + PDF report  
+- Login / Register – Firebase Authentication  
+- Profile & Logout – Via navbar  
 
 ---
 
+## Technologies Used
 
+### Frontend
+React, React Router, Firebase Auth, Tailwind CSS, Axios, Lottie/Typewriter/Awesome Reveal, jsPDF  
+
+### Backend
+Node.js, Express.js, MongoDB Atlas, Mongoose, CORS  
+
+### Deployment
+Client: Netlify / Firebase / Surge  
+Server: Vercel  
+
+---
+
+## Database Summary
+
+### Issues Collection
+- title  
+- category  
+- location  
+- description  
+- image  
+- amount  
+- email  
+- date  
+- status  
+
+### Contributions Collection
+- issueId  
+- amount  
+- name  
+- email  
+- phone  
+- address  
+- date  
+
+---
+
+## Run Locally
+
+### Client
+```bash
+npm install
+npm run dev
