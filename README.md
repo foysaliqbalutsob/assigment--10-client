@@ -71,9 +71,4 @@ Server: Vercel
 
 ---
 
-## Run Locally
 
-### Client
-```bash
-npm install
-npm run dev
